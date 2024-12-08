@@ -4,7 +4,7 @@ Site: https://daniel0052.github.io/Mundo-Invertido/
 
 ![image](https://github.com/user-attachments/assets/3a84e56d-546c-45ab-a8ba-bd713466f32d)
 
-Nesse projeto é possivel trocar entre os temas claro e escuro com o botão "Inverter Mundos", o objetivo é aprender o que da para fazer com o HTML e CSS, o JavaScript foi usado apenas para diminuir o volume da música e trazer essa interação com a troca de temas.   
+Nesse projeto é possivel trocar entre os temas claro e escuro com o botão "Inverter Mundos", o objetivo é aprender o que da para fazer com o HTML e CSS, o JavaScript foi usado apenas para diminuir o volume da música e trazer essa interação com a troca de temas, e ao trocar de tema a música de fundo também é alterada.   
 
 ![image](https://github.com/user-attachments/assets/2eeeaec0-f82e-4cc9-b47a-ae724f42f052)
 
