@@ -25,7 +25,7 @@
   
   <header aria-label="Cabeçalho da página.">
     <audio id="music" autoplay loop>
-      <source src="./assets/musics/normal-world.mpeg" aria-details="Audio do site">
+      <source src="assets/musics/normal-world.mpeg" aria-details="Audio do site">
     </audio>
 
     <div class="header-content">
@@ -33,7 +33,7 @@
       <p class="invert-element" role="text">
         Uma jornada para quem não tem medo do desconhecido. O caminho para o Mundo invertido é incerto, repleto de obstáculos e perigos. Porém, a recompensa é grande: salvar Hawkings e o mundo todo das garras de Vecna. Você está preparado? Então clique no botão abaixo para entrar no Mundo Invertido!
       </p>
-      <button id="switch-theme-button" onclick="switchTheme()">Inverter Mundos</button>
+      <button id="switch-theme-button">Inverter Mundos</button>
     </div>
 
     <div id="top-characters" class="world-characters"></div>
@@ -127,13 +127,43 @@
   </footer>
 
   <script>
-    function switchTheme() {
-      document.body.classList.toggle('dark-theme');
-      document.body.classList.toggle('light-theme');
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const body = document.querySelector('body');
+      const music = document.getElementById('music');
+      const source = music.querySelector('source');
+      const themeButton = document.getElementById('switch-theme-button');
 
-    const music = document.getElementById('music');
-    music.volume = 0.2;
+      // Configuração do volume inicial
+      music.volume = 0.1;
+
+      function switchTheme() {
+        if (body.classList.contains('light-theme')) {
+          // Troca para o tema Dark
+          body.classList.replace('light-theme', 'dark-theme');
+          body.setAttribute('aria-label', 'O site está utilizando o tema dark');
+
+          // Troca a música para o Mundo Invertido
+          source.src = "./assets/musics/inverted-world.mpeg";
+        } else {
+          // Volta para o tema Light
+          body.classList.replace('dark-theme', 'light-theme');
+          body.setAttribute('aria-label', 'O site está utilizando o tema light');
+
+          // Volta para a música do Mundo Normal
+          source.src = "./assets/musics/normal-world.mpeg";
+        }
+      
+      // Recaregga o áudio para aplicar o novo src
+      music.load();
+
+      // Tocar o áudio novamente
+      music.play();
+    }    
+
+    // Adicionar evento ao botão para trocar o tema
+    themeButton.addEventListener('click', switchTheme);
+  });
+
   </script>
 
 </body>
